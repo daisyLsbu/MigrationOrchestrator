@@ -1,4 +1,4 @@
-# MigrationOrchestrator
+# MigrationOrchestrator - reactive migration
 Orchestrates the migration of containers from the over-utilised host to a resource available host in the network.
 The data stored in time-series influx DB is read continuously in a moving average for each of the host in the network.
 The resource utilisation is converted to scalar and compared to the preset threshold.
@@ -6,7 +6,7 @@ For the over utilised hosts, its docker data is checked to identify the containe
 The available resources in the network is checked to identify the destination host/s.
 The transmission time from the source host to destination hosts are checked to select the destination host.
 The docker is used to host the containers, docker apis are used to aid migration from source to destination host. 
-
+implements: moving average, scalar threshold, contaner flags,  network latency
 Once a suitable destination host has been selected, it will start transferring the docker image of the identified containers after stopping the container.
 ssh is used to transfer the image between hosts as implemented in connectRemote.py
 
