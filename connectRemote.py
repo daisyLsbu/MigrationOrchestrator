@@ -46,14 +46,6 @@ def createSSHClient(server, port, user, password):
     client.connect(server, port, user, password)
     return client
 
-def sshcopy_(server1, server2, port, user, password):
-    ssh = createSSHClient(server1, port, user, password)
-    scp = SCPClient(ssh.get_transport())
-    scp.get('ubuntu-test.img')
-    ssh = createSSHClient(server2, port, user, password)
-    scp = SCPClient(ssh.get_transport())
-    scp.put('ubuntu-test.img')
-
 def sshcopy(server1, server2, port, user, password):
     """_summary_
     Copies docker images between two servers using scp protocol over ssh
@@ -61,15 +53,9 @@ def sshcopy(server1, server2, port, user, password):
     ssh = createSSHClient(server1, port, user, password)
     scp = SCPClient(ssh.get_transport())
     scp.get('/home/ubuntu/images/ubuntu-test.img')
-    print("got")
-
     ssh = createSSHClient(server2, port, user, password)
     scp = SCPClient(ssh.get_transport())
     scp.put('ubuntu-test.img')
     ssh.exec_command('sudo mv ubuntu-test.img /home/ubuntu/images/')
-
-if __name__ == '__main__':
-    pass
-
 
 

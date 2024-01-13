@@ -208,29 +208,3 @@ def startmonitoring():
 
 if __name__ == '__main__':
   startmonitoring()
-'''      
-if __name__ == '__main__':
-    srcIP = '192.168.122.210'
-    cntrId = '664109d191b7'
-    destIP = '192.168.122.80'
-    print("***********Testing the time taken for migration***********")
-    print("***********starting copying file******************")
-    start_time = time.time()
-    copy_time = time.time()
-    createSourceImage(srcIP, cntrId)
-    print("Time taken for copying --- %s seconds ---" % (time.time() - copy_time))
-    print("***********starting transfer file******************")
-    #transfer_time = time.time()
-    copyToDestination(srcIP, destIP)
-    print("Time taken for transfer --- %s seconds ---" % (time.time() - start_time))
-    print("***********starting restore file******************")
-    resore_time = time.time()
-    #restoreInDestination(srcIP)
-    print("Time taken for resoring --- %s seconds ---" % (time.time() - resore_time))
-    print("total time for migration --- %s seconds ---" % (time.time() - start_time))
-'''
-
-
-
-
-
